@@ -112,7 +112,9 @@ streamlit run app.py
 | `st.selectbox` / hidden third bit | baseline failure | visible `st.radio(horizontal=True)` × N |
 
 ## Streamlit rules
-Inherits `viz-dboard` Streamlit rules: single `app.py`, no `pages/`, `st.radio` not `st.selectbox`, `st.columns([3,7])`, `width='stretch'`/`'content'`, `with` context, 2D → matplotlib, 3D Bloch spheres use matplotlib 3D with `plt.close()` (PyVista is reserved for general 3D scenes), Streamlit Cloud only.
+Inherits `viz-dboard` Streamlit rules: single `app.py`, no `pages/`, `st.radio` not `st.selectbox`, `st.columns([3,7])`, `width='stretch'`/`'content'`, `with` context, 2D → matplotlib, **3D → PyVista + Panel (including Bloch spheres; no matplotlib-3D exception)**, Streamlit Cloud only for Streamlit apps.
+
+The matplotlib-3D Bloch panel in `~/薦家/布球/qbit-gate-viz/app.py` is **legacy** (it predates this rule and is kept only for the gate-selector demo). For 3D Bloch/evolution use `~/薦家/布球/bloch-evolution-viz/app.py` (`panel serve app.py`), grounded in `5布球態演化維問.py`.
 
 ## References
 - Distilled notes: `~/薦家/布球/{量子邏輯閘運算.md,總結邏輯閘.md,比特閘Util.py}`
